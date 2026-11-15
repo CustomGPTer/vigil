@@ -32,7 +32,7 @@
 <div class="wrap">
 <div class="measure">
 <h1>Privacy policy</h1>
-<p class="lede">Last updated 15 November 2026. This policy covers the Vigil app for Android (package <code>uk.jj.vigil</code>) and this website. Vigil is made by Jonathan Jackson, an individual developer in the United Kingdom. The app is in development; this policy describes its first release and will be updated if anything changes before then.</p>
+<p class="lede">Last updated 15 November 2026. This policy covers the Vigil app for Android (package <code>uk.jj.vigil</code>) and this website. Vigil is made by Jonathan Jackson, an individual developer in the United Kingdom. It also covers the web viewer on this site.</p>
 <nav class="contents" aria-label="On this page"><strong>On this page</strong><ul><li><a href="#short">The short version</a></li><li><a href="#device">What stays on your phones</a></li><li><a href="#google-user-data">Google user data</a></li><li><a href="#services">Other services the app contacts</a></li><li><a href="#others">People you record</a></li><li><a href="#deleting">Keeping and deleting your data</a></li><li><a href="#rights">Your rights</a></li><li><a href="#security">Security</a></li><li><a href="#website">This website</a></li><li><a href="#children">Children</a></li><li><a href="#changes">Changes</a></li><li><a href="#contact">Contact</a></li></ul></nav>
 
 <h2 id="short">The short version</h2>
@@ -48,10 +48,12 @@
 <ul>
 <li>a rolling recording, which overwrites its oldest footage when the space you allow is used up;</li>
 <li>event clips and their thumbnail pictures, until they have been copied to your Google Drive and the space is needed;</li>
-<li>your camera settings, including any zones and privacy masks you draw.</li>
+<li>pictures taken once a minute for the daily time-lapse, until that day's film has been made and copied to your Drive;</li>
+<li>your camera settings, including any zones and privacy masks you draw, and, if you record one, your own spoken warning;</li>
+<li>anything you enter for the optional extras: a PIN (stored only in a scrambled form), an encryption passphrase, a stream password, a webhook address and an AI key. These stay on that phone and are not copied to Drive.</li>
 </ul>
 <p>Movement, people, pets, vehicles and sounds are recognised by software running on the camera phone. The picture and sound are not sent anywhere to be analysed.</p>
-<p>The viewer phone keeps your settings and a list of recent events. If you turn on arming by location, the viewer phone uses its location to tell whether you are at home. That location is used on the phone only and is not stored in Drive or sent to anyone.</p>
+<p>The viewer phone keeps your settings, the cameras it knows about and, for a while, copies of recordings you have played. If you set a home for arming by location, Android on the viewer phone watches for you leaving and arriving. The location stays on the phone; the only thing passed on, through a small file in your Drive, is whether that phone is "home" or "away".</p>
 
 <h2 id="google-user-data">Google user data</h2>
 <p>Vigil asks you to sign in to Google so that it can save clips to your Google Drive. It asks for one permission.</p>
@@ -59,7 +61,7 @@
 <table>
 <thead><tr><th scope="col">Permission</th><th scope="col">What Vigil accesses</th><th scope="col">Why</th></tr></thead>
 <tbody>
-<tr><th scope="row">See, edit, create and delete only the specific Google Drive files you use with this app (<code>drive.file</code>)</th><td>Only the folder called Vigil that the app creates in your Drive and the files the app puts in it: video clips, thumbnail pictures, and small files holding your camera settings and the information your devices need to find each other. Vigil also reads your Google account's email address.</td><td>To store your clips, to let your viewer phone or browser list and play them, to delete clips that are older than the period you set, and to show you which account is signed in.</td></tr>
+<tr><th scope="row">See, edit, create and delete only the specific Google Drive files you use with this app (<code>drive.file</code>)</th><td>Only the folder called Vigil that the app creates in your Drive and the files the app puts in it: video clips, thumbnail pictures and daily time-lapse films; alert notices and the still picture that goes with each; a current still picture from each camera; and small files holding your camera settings, the names and roles of your phones, whether each phone is home or away, and the messages your devices use to find each other and to pass on instructions such as arm and disarm. Vigil also reads your Google account's email address.</td><td>To store your recordings, to let your viewer phone or browser list and play them, to deliver alerts and instructions between your own devices, to delete recordings that are older than the period you set, and to show you which account is signed in.</td></tr>
 </tbody>
 </table>
 </div>
@@ -69,7 +71,7 @@
 <p>Clips and the other files are stored in your own Google Drive, and copies are kept on your own phones as described above. Your email address is stored on your phone only.</p>
 <h3>Who it is shared with</h3>
 <p>Nobody, unless you choose to. Google user data is not sent to the developer, not sold, not used for advertising, not used to train any AI or machine-learning model, and not seen by any person other than you.</p>
-<p>If you share a camera with another person, Vigil shares that camera's Drive folder with the Google account you name, so that they can see its clips. You can stop sharing at any time. If you turn on the optional AI helper described in the next section, snapshots from your clips are sent to the AI service you choose.</p>
+<p>Vigil does not share anything in your Drive with other Google accounts. A household shares its cameras by signing each phone in to the same Google account, and each phone is then given a role, full control or view only. If you turn on the optional AI helper described in the next section, one still picture from each event is sent to the AI service you choose; that picture comes from the camera phone, not from your Drive.</p>
 <p class="note">Vigil's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
 
 <h2 id="services">Other services the app contacts</h2>
@@ -79,9 +81,9 @@
 <tbody>
 <tr><th scope="row">Your other device</th><td>Live video and sound, encrypted, directly between your camera phone and your viewer phone or browser</td><td>While you are watching live or talking through the camera</td></tr>
 <tr><th scope="row">Connection helper (STUN)</th><td>Your devices' internet addresses, so that they can find a direct route to each other. No video or sound</td><td>When a live view starts</td></tr>
-<tr><th scope="row">Your own Firebase project</th><td>Short connection messages and alert notices, using a key you supply</td><td>Only if you add your own Firebase key in Settings for faster alerts</td></tr>
-<tr><th scope="row">An AI service you choose</th><td>Snapshots from your clips, using a key you supply</td><td>Only if you turn on the AI helper in Settings. It is off by default</td></tr>
-<tr><th scope="row">Web addresses you enter</th><td>A short notice that an event happened</td><td>Only if you set up a webhook in Settings</td></tr>
+<tr><th scope="row">An AI service you choose</th><td>One still picture from an event, with privacy masks blacked out, using a key you supply</td><td>Only if you turn on the AI helper in Settings. It is off by default, and sends at most one picture every 15 seconds</td></tr>
+<tr><th scope="row">A web address you enter</th><td>A short notice that an event happened: what, which camera and when. Never a picture</td><td>Only if you set up a webhook in Settings</td></tr>
+<tr><th scope="row">Equipment on your own network</th><td>The camera's live video, to any player or recorder on your Wi-Fi that has the password you set</td><td>Only if you switch on the local video stream in Settings. It is not reachable from the internet</td></tr>
 <tr><th scope="row">GitHub</th><td>A request for the latest version number</td><td>When the app checks whether an update is available</td></tr>
 </tbody>
 </table>
@@ -90,7 +92,7 @@
 
 <h2 id="others">People you record</h2>
 <p>A camera records whoever is in front of it. You decide where a camera points and you are responsible for using it lawfully and fairly towards the people it records, including your household, visitors, neighbours and anyone at a place of work.</p>
-<p>Vigil gives you tools to record less: privacy masks that black out areas so they are never recorded, a choice for each camera of whether sound is recorded, the option to pause indoor cameras while you are home, and a sign you can print. The developer has no access to your recordings and cannot view, pass on or delete them for anyone.</p>
+<p>Vigil gives you tools to record less: privacy masks that black out areas so they are never recorded, a choice for each camera of whether sound is recorded, the option to pause cameras while you are home, and a sign you can print. The developer has no access to your recordings and cannot view, pass on or delete them for anyone.</p>
 
 <h2 id="deleting">Keeping and deleting your data</h2>
 <ul>
@@ -105,10 +107,12 @@
 <p>The developer of Vigil holds no personal data about you: there is no account, no server and no log of who uses the app. Your data is on your own phones and in your own Google account, where you control it directly using the steps above. If you believe you have been recorded by someone else's Vigil camera, the person who runs that camera holds the recording, not the developer. You have the right to complain to the Information Commissioner's Office at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
 
 <h2 id="security">Security</h2>
-<p>Every connection the app makes to Google uses HTTPS, and live video between your devices is encrypted. The app's settings are held in private storage that other apps cannot read, and nothing from Vigil is included in Android's automatic backups. You can add a fingerprint lock to the viewer and a PIN to the camera phone, and you can choose to encrypt a camera's clips before they are saved to Drive.</p>
+<p>Every connection the app makes to Google uses HTTPS, and live video between your devices is encrypted. The app's settings are held in private storage that other apps cannot read, and nothing from Vigil is included in Android's automatic backups. You can add a fingerprint lock to the viewer and a PIN to the camera phone, and you can choose to encrypt a camera's recordings with a passphrase before they are saved to Drive. Roles for phones are kept by the app itself: anyone who knows the Google account's password can still open what is in its Drive, so share that password only with people you would trust with the recordings.</p>
 
 <h2 id="website">This website</h2>
-<p>This site sets no cookies, runs no scripts or analytics and loads nothing from other websites. It is hosted on GitHub Pages, and GitHub, as the host, receives the internet address of visitors and handles it under the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>. The app file will be downloaded from GitHub as well, on the same terms.</p>
+<p>Apart from the web viewer, this site sets no cookies, runs no scripts or analytics and loads nothing from other websites.</p>
+<p>The <a href="view/">web viewer</a> is a page that runs in your own browser. It loads Google's sign-in script from <code>accounts.google.com</code>, asks you to sign in with the same single Drive permission as the app, and then talks directly to Google Drive and, for live view, directly to your camera phone. It keeps your sign-in and any encryption passphrase in the page's memory only; closing the page forgets them. It sets no cookies of its own, though Google may set its own in its sign-in window. Nothing you do in the web viewer is sent to the developer.</p>
+<p>The site is hosted on GitHub Pages, and GitHub, as the host, receives the internet address of visitors and handles it under the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>. The app file will be downloaded from GitHub as well, on the same terms.</p>
 
 <h2 id="children">Children</h2>
 <p>Vigil is a tool for adults to look after their own home and property. It is not directed at children and the developer does not knowingly collect information from anyone.</p>
@@ -126,12 +130,13 @@
 <div class="wrap">
 <div>
 <p>&copy; 2026 Jonathan Jackson. Vigil is an independent app.</p>
-<p>This site uses no cookies, no scripts and no tracking.</p>
+<p>This site uses no cookies and no tracking. Only the web viewer runs any script.</p>
 </div>
 <nav aria-label="Footer"><ul>
 <li><a href="./">Home</a></li>
 <li><a href="./privacy.html">Privacy policy</a></li>
 <li><a href="./terms.html">Terms of use</a></li>
+<li><a href="./view/">Web viewer</a></li>
 <li><a href="https://github.com/CustomGPTer/vigil/issues">Contact</a></li>
 </ul></nav>
 </div>

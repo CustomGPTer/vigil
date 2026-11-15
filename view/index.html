@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web viewer | Vigil</title>
+<meta name="description" content="Watch your Vigil cameras, play recordings and arm or disarm from a web browser.">
+<meta name="author" content="Jonathan Jackson">
+<link rel="canonical" href="https://customgpter.github.io/vigil/view/index.html">
+<meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vigil">
+<meta property="og:title" content="Web viewer | Vigil">
+<meta property="og:description" content="Watch your Vigil cameras, play recordings and arm or disarm from a web browser.">
+<meta property="og:url" content="https://customgpter.github.io/vigil/view/index.html">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v=1">
+<link rel="stylesheet" href="../assets/viewer.css?v=1">
+<meta name="robots" content="noindex">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+<div class="wrap">
+<a class="brand" href="../" aria-label="Vigil home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0f1317"/><circle cx="32" cy="32" r="17" fill="none" stroke="#f2f5f7" stroke-width="4"/><circle cx="32" cy="32" r="8.5" fill="#4fd1a5"/><circle cx="35.4" cy="28.6" r="2.5" fill="#0f1317"/></svg><span>Vigil</span></a>
+<nav aria-label="Main"><ul><li><a href="../#features">Features</a></li><li><a href="../#google">Google account</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></nav>
+</div>
+</header>
+<main id="main" class="viewer">
+<div class="wrap">
+
+<section id="v-signin">
+<h1>Vigil web viewer</h1>
+<p class="vlede">Watch your cameras, look back through recordings and arm or disarm from a web browser. Sign in with the same Google account as your camera phone.</p>
+<p><button type="button" class="vbtn primary" id="v-signin-btn">Sign in with Google</button></p>
+<p class="vnote" id="v-signin-note" role="status"></p>
+<p class="vnote">This page runs entirely in your browser. It can only see the files Vigil itself created in your Google Drive, it stores nothing, and nothing is sent to the developer. See the <a href="../privacy.html#website">privacy policy</a>.</p>
+</section>
+
+<div class="vrenew" id="v-renew" hidden>
+<p>Google signs this page out after an hour. Renew now to carry on without a break.</p>
+<button type="button" class="vbtn primary" id="v-renew-btn">Stay signed in</button>
+</div>
+
+<section id="v-home" hidden>
+<div class="vbar"><h1>Your cameras</h1><span class="vaccount" id="v-account"></span><button type="button" class="vbtn" id="v-signout">Sign out</button></div>
+<p class="vnote" id="v-home-note" role="status"></p>
+<div class="vgrid" id="v-grid"></div>
+<h2>Alerts while this page is open</h2>
+<label class="vcheck"><input type="checkbox" id="v-notify"> Show them as notifications on this device too</label>
+<p class="vnote" id="v-notify-note"></p>
+<p class="vnote" id="v-alerts-empty">Nothing yet. New alerts appear here within about 15 seconds.</p>
+<ul class="valerts" id="v-alerts" aria-live="polite"></ul>
+</section>
+
+<section id="v-camera" hidden>
+<div class="vbar"><button type="button" class="vbtn" id="v-back">All cameras</button><h1 id="v-name"></h1><span class="vpill" id="v-status"></span></div>
+<div class="vstage"><img id="v-still" alt="Latest still picture from the camera" hidden><video id="v-video" playsinline autoplay hidden></video></div>
+<p class="vstage-note" id="v-stage-note" role="status"></p>
+<div class="vcontrols">
+<button type="button" class="vbtn" id="v-arm" aria-pressed="false">Arm</button>
+<button type="button" class="vbtn danger" id="v-siren" aria-pressed="false">Siren</button>
+<button type="button" class="vbtn" id="v-flash">Flash torch</button>
+<button type="button" class="vbtn" id="v-mute">Mute</button>
+<form class="vsay" id="v-say-form"><input type="text" id="v-say" maxlength="200" placeholder="Type something for the camera to say" aria-label="Something for the camera to say out loud"><button type="submit" class="vbtn">Say it</button></form>
+</div>
+<p class="vnote" id="v-note" role="status"></p>
+
+<h2>Recordings</h2>
+<div class="vday"><label for="v-day">Day</label><input type="date" id="v-day"><button type="button" class="vbtn" id="v-refresh">Refresh</button></div>
+<div class="vrenew" id="v-locked" hidden><p id="v-locked-text"></p><button type="button" class="vbtn" id="v-locked-btn">Enter passphrase</button></div>
+<p class="vfilm"><button type="button" class="vbtn" id="v-film" hidden>Play the day in a minute (time-lapse)</button></p>
+<p class="vnote" id="v-rec-note" role="status"></p>
+<ul class="vclips" id="v-clips"></ul>
+</section>
+
+<dialog class="vplayer" id="v-player" aria-labelledby="v-player-title">
+<div class="vplayer-head"><h2 id="v-player-title"></h2><button type="button" class="vbtn" id="v-player-close">Close</button></div>
+<p class="vnote" id="v-player-note" role="status"></p>
+<video id="v-player-video" controls playsinline hidden></video>
+<div class="vplayer-actions" id="v-player-actions" hidden>
+<a id="v-player-save" href="#" download>Save to this device</a>
+<button type="button" class="vbtn" id="v-player-star">Star to keep</button>
+<button type="button" class="vbtn" id="v-player-delete">Delete</button>
+</div>
+</dialog>
+
+<dialog class="vplayer vpass" id="v-pass" aria-labelledby="v-pass-title">
+<form id="v-pass-form">
+<h2 id="v-pass-title">Passphrase</h2>
+<p class="vnote">Type the passphrase that was set on the camera phone. It stays in this page only and is forgotten when you close it.</p>
+<p><input type="password" id="v-pass-input" autocomplete="off" aria-label="Passphrase"></p>
+<p class="vnote problem" id="v-pass-note" role="status"></p>
+<div class="vplayer-actions"><button type="submit" class="vbtn primary">Open recordings</button><button type="button" class="vbtn" id="v-pass-cancel">Cancel</button></div>
+</form>
+</dialog>
+
+</div>
+</main>
+<footer class="colophon">
+<div class="wrap">
+<div>
+<p>&copy; 2026 Jonathan Jackson. Vigil is an independent app.</p>
+<p>This page signs you in with Google and runs in your browser. No cookies are set by Vigil and nothing is tracked.</p>
+</div>
+<nav aria-label="Footer"><ul>
+<li><a href="../">Home</a></li>
+<li><a href="../privacy.html">Privacy policy</a></li>
+<li><a href="../terms.html">Terms of use</a></li>
+<li><a href="../view/">Web viewer</a></li>
+<li><a href="https://github.com/CustomGPTer/vigil/issues">Contact</a></li>
+</ul></nav>
+</div>
+</footer>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="../assets/viewer.js?v=1" defer></script>
+</body>
+</html>
