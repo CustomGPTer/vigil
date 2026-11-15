@@ -40,16 +40,27 @@
 <div class="wrap">
 <div class="measure">
 <h1>Release notes</h1>
-<p class="lede">What was added, improved and fixed in each version of Vigil, newest first. The current version is 1.0.</p>
+<p class="lede">What was added, improved and fixed in each version of Vigil, newest first. The current version is 1.2.</p>
 <p class="get"><a class="button" href="https://github.com/CustomGPTer/vigil/releases/latest/download/Vigil.apk"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 20h14"/></svg>Download the latest version</a></p>
-<p class="facts">Version 1.0. Android app file, 67 MB. Android 10 or later. Free.</p>
+<p class="facts">Version 1.2. Android app file, 67 MB. Android 10 or later. Free.</p>
 <p class="facts">Chrome may say the file might be harmful. It shows this for app files that do not come from Google Play. Choose Download anyway. To be sure of the file, see <a href="#checking">Checking your download</a>.</p>
-<nav class="contents" aria-label="Versions"><strong>Versions</strong><ul><li><a href="#v1-0">1.0&ensp;First release</a></li></ul></nav>
+<nav class="contents" aria-label="Versions"><strong>Versions</strong><ul><li><a href="#v1-2">1.2&ensp;Longer clips, Wi-Fi only uploads and playback on the camera</a></li><li><a href="#v1-0">1.0&ensp;First release</a></li></ul></nav>
+
+<article class="release" id="v1-2">
+<p class="ver">Version 1.2</p>
+<h2>Longer clips, Wi-Fi only uploads and playback on the camera</h2>
+<p class="when"><span class="tag">Latest</span>Released 15 November 2026</p>
+<h3>Added</h3>
+<ul><li>Recordings on the camera phone. A new button on the camera screen lists the clips still on that phone and the rolling recording, hour by hour, and plays them there with no need for Drive or a connection.</li><li>Upload on Wi-Fi only, in the camera's Recording settings. Clips and the daily time-lapse wait on the camera phone until it is on Wi-Fi. Alerts are still sent straight away.</li><li>Largest clip size, in the same place: 50, 100 or 200 MB. Smaller clips reach Drive sooner and open faster on the viewer.</li><li>Signing in to Google is now a step in setting up a camera, so it cannot be missed. It can be put off.</li><li>An upload log in the camera phone's settings, which says what has been sent to Drive and why anything is waiting.</li><li>An Off choice for the rolling recording. Switching it off frees the space it was using.</li></ul>
+<h3>Improved</h3>
+<ul><li>One clip can now run to 200 MB, which is eight or nine minutes, instead of two minutes. If something is still happening, recording carries on in a new clip with no gap, and the finished clip uploads in the meantime.</li><li>A clip that is part-way to Drive when the connection drops carries on from where it stopped instead of starting again.</li><li>The camera screen shows how far an upload has got, and says in plain words what is wrong if one cannot go.</li><li>The camera screen makes it plain when the phone is not signed in to Google: clips cannot be watched until you sign in.</li></ul>
+<h3>Fixed</h3>
+<ul><li>Clips are now sent whenever Vigil is open, not only while the camera is watching, so a clip recorded before you signed in goes up once you do.</li><li>The camera screen could go on saying it was uploading after an upload had stopped.</li><li>Vigil could make its folder in Drive twice. Every phone now uses the same one, and an empty spare is removed.</li><li>A camera left signed out for a long time could fill the phone with clips. Clips that cannot reach Drive are now limited to 8 GB, and the oldest go first.</li><li>The camera screen could stay on "recording" if a clip failed to save.</li></ul>
+</article>
 
 <article class="release" id="v1-0">
 <p class="ver">Version 1.0</p>
 <h2>First release</h2>
-<p class="when"><span class="tag">Latest</span>Released 15 November 2026</p>
 <h3>Watching</h3>
 <ul><li>Movement, people, pets and vehicles recognised on the camera phone, with a choice of what counts for each camera.</li><li>Sound alerts for smoke and carbon monoxide alarms, breaking glass, a baby crying, a dog barking and shouting.</li><li>Zones, tripwire lines, and alerts for someone staying too long.</li><li>Arming by timetable, or automatically when you leave home, and a pause while you are home.</li><li>Night: automatic brightening, a slow-shutter night mode, and the torch on detection.</li><li>Up to four cameras.</li></ul>
 <h3>Recording and looking back</h3>
@@ -75,8 +86,8 @@
 <li>Every version is signed with the same key, so Android accepts an update only if it comes from the same developer.</li>
 </ul>
 <h2 id="checking">Checking your download</h2>
-<p>The file for version 1.0 is 67,321,513 bytes. Its SHA-256 checksum is:</p>
-<p class="sum"><code>31a6d91a746dfc880e5c87685511cd2581b1d8451df77462c91c52557e59a38a</code></p>
+<p>The file for version 1.2 is 67,370,665 bytes. Its SHA-256 checksum is:</p>
+<p class="sum"><code>a07441e4e9c4c0707c215542886bbfcf3fc9644760dd1b1af768091d13ffc28b</code></p>
 <p>Every version and its file is listed on <a href="https://github.com/CustomGPTer/vigil/releases">GitHub Releases</a>. To report a problem with a version, <a href="https://github.com/CustomGPTer/vigil/issues">open an issue on GitHub</a>.</p>
 </div>
 </div>
